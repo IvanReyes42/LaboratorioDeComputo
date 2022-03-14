@@ -1,0 +1,3 @@
+npm init -y
+npm i bcryptjs connect-flash express express-handlebars express-mysql-session express-session express-validator morgan mysql passport passport-local timeago.js nodemon
+"dev": "nodemon src/index.js"

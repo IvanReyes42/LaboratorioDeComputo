@@ -1,0 +1,41 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card text-center">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{#xif user.Rol "Administrador"}}
+                                <img src="images/Admin.png" alt="" width="90%">
+                            {{/xif}}
+                            {{#xif user.Rol "Tecnico"}}
+                                <img src="images/Tecnico.png" alt="" width="50%">
+                            {{/xif}}
+                        </div>
+                        <div class="col-md-6">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                    <th ><h5>Full Name</h5></th>
+                                    <td><h5>{{user.FullName}}</h5></td>
+                                    </tr>
+
+                                    <tr>
+                                    <th ><h5>User Name</h5></th>
+                                    <td><h5>{{user.UserName}}</h5></td>
+                                    </tr>
+
+                                    <tr>
+                                    <th ><h5>Rol</h5></th>
+                                    <td><h5>{{user.Rol}}</h5></td>
+                                    </tr>
+                                    
+                                </tbody>
+                                </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

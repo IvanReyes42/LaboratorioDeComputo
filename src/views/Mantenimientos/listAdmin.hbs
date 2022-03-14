@@ -1,0 +1,88 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="/mantenimientos/" method="post">
+                <div class="form-row">
+                    <div class="col-md-11">
+                         <input type="text" class="form-control" placeholder="Buscar Mantenimientos" name="Buscar" autofocus>
+                    </div>
+                    <div class="col-md-1">
+                         <button class="btn">
+                             <i class="fa-solid fa-magnifying-glass"></i>
+                         </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        
+    </div>
+</div>
+
+<div class="container-fluid p-4">
+    <div class="row table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Problematica</th>
+                <th scope="col">Status</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Computadora</th>
+                <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {{#each Mantenimientos}}
+                <tr>
+                <th scope="row">{{IdMantenimiento}}</th>
+                <td>{{ChangeFecha Fecha}}</td>
+                <td>{{Tipo}}</td>
+                <td>{{Problematica}}</td>
+                <td>{{Status}}</td>
+                <td>{{UserName}}</td>
+                <td>{{FkIdComputadora}}</td>
+                <td>
+
+                    {{#xif Status "Abierto"}}
+                    <a href="/mantenimientos/autorizar/{{../IdMantenimiento}}" class="btn btn-success">Autorizar</a>
+                    <a href="/mantenimientos/cancelar/{{../IdMantenimiento}}" class="btn btn-danger">Cancelar</a>
+                    {{/xif}}
+
+                    <a href="/mantenimientos/pdf/{{IdMantenimiento}}" class="btn btn-secondary">PDF</a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Eliminar{{IdMantenimiento}}">
+                        Eliminar
+                    </button>
+                    
+
+                </td>
+                </tr>
+                <tr>
+            
+            <div class="modal fade" id="Eliminar{{IdMantenimiento}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Computadora</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Esta seguro de eliminar el mantenimiento de la computadora {{FkIdComputadora}}?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                         <a href="/Mantenimientos/delete/{{IdMantenimiento}}" class="btn btn-danger">Eliminar</a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+            {{/each}}    
+            </tbody>
+            </table>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+<div class="conteiner p-4 ">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    Nueva Computadora
+                </div>
+                <div class="card-body">
+                   
+                   <form action="/laboratorios/computadoras/add" method="post">
+
+                    <div class="form-group">
+                        <label for="IdComputadora">Codigo</label>
+                        <input type="text" class="form-control" id="IdComputadora" name="IdComputadora" placeholder="" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Marca">Marca</label>
+                        <input type="text" class="form-control" id="Marca" name="Marca" placeholder="" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Monitor">Monitor</label>
+                        <input type="text" class="form-control" id="Monitor" name="Monitor" placeholder="" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Procesador">Procesador</label>
+                        <input type="text" class="form-control" id="Procesador" name="Procesador" placeholder="" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="RAM">RAM</label>
+                        <input type="text" class="form-control" id="RAM" name="RAM" placeholder="" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Almacenamiento">Almacenamiento</label>
+                        <input type="text" class="form-control" id="Almacenamiento" name="Almacenamiento" placeholder="" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputState">Conexion</label>
+                            <select id="inputState" class="form-control" name="Conexion">
+                                <option value="1" selected>Cable</option>
+                                <option value="2" >Inalambrico</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputState">Status</label>
+                            <select id="inputState" class="form-control" name="Status">
+                                <option value="1" selected>Funcionando</option>
+                                <option value="2" >Reparacion</option>
+                                <option value="3" >Baja</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">  
+                        <button class="btn btn-success btn-block">Guardar</button>
+                    </div>
+
+                   </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

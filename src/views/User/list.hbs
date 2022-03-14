@@ -1,0 +1,78 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-9">
+            <form action="/users/" method="post">
+                <div class="form-row">
+                    <div class="col-md-11">
+                         <input type="text" class="form-control" placeholder="Buscar Usuario" name="Buscar" autofocus>
+                    </div>
+                    <div class="col-md-1">
+                         <button class="btn">
+                             <i class="fa-solid fa-magnifying-glass"></i>
+                         </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <div class="col-md-3">
+            <a href="/users/add" class="btn btn-success"> Nuevo Usuario</a>
+        </div>
+    </div>
+</div>
+
+<div class="container p-4">
+    <div class="row table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">User Name</th>
+                <th scope="col">Rol</th>
+                <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {{#each Users}}
+                <tr>
+                <th scope="row">{{IdUser}}</th>
+                <td>{{FullName}}</td>
+                <td>{{UserName}}</td>
+                <td>{{Rol}}</td>
+                <td>
+                    <a href="/users/edit/{{IdUser}}" class="btn btn-info">Editar</a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Eliminar{{IdUser}}">
+                        Eliminar
+                    </button>
+                    
+
+                </td>
+                </tr>
+                <tr>
+            
+            <div class="modal fade" id="Eliminar{{IdUser}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Usuario</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Esta seguro de eliminar al usuario {{UserName}}?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                         <a href="/users/delete/{{IdUser}}" class="btn btn-danger">Eliminar</a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+            {{/each}}    
+            </tbody>
+            </table>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+<div class="conteiner p-4 ">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    Editar Computadora
+                </div>
+                <div class="card-body">
+                   
+                   <form action="/laboratorios/computadoras/edit/{{Computadora.IdComputadora}}" method="post">
+
+                    <div class="form-group">
+                        <label for="IdComputadora">Codigo</label>
+                        <input type="text" class="form-control" id="IdComputadora" name="IdComputadora" placeholder="" value="{{Computadora.IdComputadora}}" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Marca">Marca</label>
+                        <input type="text" class="form-control" id="Marca" name="Marca" placeholder="" value="{{Computadora.Marca}}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Monitor">Monitor</label>
+                        <input type="text" class="form-control" id="Monitor" name="Monitor" placeholder=""  value="{{Computadora.Monitor}}"required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Procesador">Procesador</label>
+                        <input type="text" class="form-control" id="Procesador" name="Procesador" placeholder="" value="{{Computadora.Procesador}}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="RAM">RAM</label>
+                        <input type="text" class="form-control" id="RAM" name="RAM" placeholder="" value="{{Computadora.RAM}}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Almacenamiento">Almacenamiento</label>
+                        <input type="text" class="form-control" id="Almacenamiento" name="Almacenamiento" placeholder="" value="{{Computadora.Almacenamiento}}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputState">Conexion</label>
+                            <select id="inputState" class="form-control" name="Conexion">
+                                {{#xif Computadora.Conexion "Cable"}}
+                                    <option value="1" selected>Cable</option>
+                                    <option value="2" >Inalambrico</option>
+                                {{/xif}}
+                                
+                                {{#xif Computadora.Conexion "Inalambrico"}}
+                                    <option value="1" >Cable</option>
+                                    <option value="2" selected>Inalambrico</option>
+                                {{/xif}}
+
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputState">Status</label>
+                            <select id="inputState" class="form-control" name="Status">
+                                {{#xif Computadora.Status "Funcionando"}}
+                                    <option value="1" selected>Funcionando</option>
+                                    <option value="2" >Reparacion</option>
+                                    <option value="3" >Baja</option>
+                                {{/xif}}
+
+                                {{#xif Computadora.Status "Reparacion"}}
+                                    <option value="1" >Funcionando</option>
+                                    <option value="2" selected >Reparacion</option>
+                                    <option value="3" >Baja</option>
+                                {{/xif}}
+
+                                {{#xif Computadora.Status "Baja"}}
+                                    <option value="1" >Funcionando</option>
+                                    <option value="2" >Reparacion</option>
+                                    <option value="3"  selected>Baja</option>
+                                {{/xif}}
+
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">  
+                        <button class="btn btn-success btn-block">Guardar</button>
+                    </div>
+
+                   </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

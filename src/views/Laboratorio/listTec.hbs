@@ -1,0 +1,71 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="/mantenimientos/solicitud" method="post">
+                <div class="form-row">
+                    <div class="col-md-6">
+                         <input type="text" class="form-control" placeholder="Buscar Computadora" name="Buscar" autofocus>
+                    </div>
+                    <div class="col-md-4">
+                        <select id="Laboratorio" class="form-control" name="Laboratorio">
+                            <option value="0" >Todos</option>
+                            {{#each Laboratorios}}
+                                <option value="{{IdLaboratorio}}" >{{Nombre}}</option>
+                            {{/each}}   
+                        </select>
+                    
+                    </div>
+                    <div class="col-md-1">
+                         <button class="btn">
+                             <i class="fa-solid fa-magnifying-glass"></i>
+                         </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        
+    </div>
+</div>
+
+<div class="container p-4">
+    <div class="row table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Monitor</th>
+                <th scope="col">Procesador</th>
+                <th scope="col">RAM</th>
+                <th scope="col">Almacenamiento</th>
+                <th scope="col">Conexion</th>
+                <th scope="col">Status</th>
+                <th scope="col">Laboratorio</th>
+                <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {{#each Computadoras}}
+                <tr>
+                <th scope="row">{{IdComputadora}}</th>
+                <td>{{Marca}}</td>
+                <td>{{Monitor}}</td>
+                <td>{{Procesador}}</td>
+                <td>{{RAM}}</td>
+                <td>{{Almacenamiento}}</td>
+                <td>{{Conexion}}</td>
+                <td>{{Status}}</td>
+                <td>{{nombre}}</td>
+                <td>
+                    
+                    <a href="/mantenimientos/add/{{IdComputadora}}" class="btn btn-info">Solicitar Mantenimiento</a>
+                    
+                </td>
+                </tr>
+                <tr>
+            {{/each}}    
+            </tbody>
+            </table>
+    </div>
+</div>

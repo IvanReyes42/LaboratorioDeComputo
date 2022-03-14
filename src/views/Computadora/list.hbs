@@ -1,0 +1,87 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-9">
+            <form action="/laboratorios/computadoras/search" method="post">
+                <div class="form-row">
+                    <div class="col-md-11">
+                         <input type="text" class="form-control" placeholder="Buscar Computadora" name="Buscar" autofocus>
+                    </div>
+                    <div class="col-md-1">
+                         <button class="btn">
+                             <i class="fa-solid fa-magnifying-glass"></i>
+                         </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <div class="col-md-3">
+            <a href="/laboratorios/computadoras/add" class="btn btn-success"> Nueva Computadora </a>
+        </div>
+    </div>
+</div>
+
+<div class="container p-4">
+    <div class="row table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Monitor</th>
+                <th scope="col">Procesador</th>
+                <th scope="col">RAM</th>
+                <th scope="col">Almacenamiento</th>
+                <th scope="col">Conexion</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {{#each Computadoras}}
+                <tr>
+                <th scope="row">{{IdComputadora}}</th>
+                <td>{{Marca}}</td>
+                <td>{{Monitor}}</td>
+                <td>{{Procesador}}</td>
+                <td>{{RAM}}</td>
+                <td>{{Almacenamiento}}</td>
+                <td>{{Conexion}}</td>
+                <td>{{Status}}</td>
+                <td>
+
+                    <a href="/laboratorios/computadoras/edit/{{IdComputadora}}" class="btn btn-info">Editar</a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Eliminar{{IdComputadora}}">
+                        Eliminar
+                    </button>
+                    
+
+                </td>
+                </tr>
+                <tr>
+            
+            <div class="modal fade" id="Eliminar{{IdComputadora}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Computadora</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Esta seguro de eliminar la computadora {{IdComputadora}}?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                         <a href="/laboratorios/computadoras/delete/{{IdComputadora}}" class="btn btn-danger">Eliminar</a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+            {{/each}}    
+            </tbody>
+            </table>
+    </div>
+</div>

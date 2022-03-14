@@ -1,0 +1,61 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="/Mantenimientos/tecnico" method="post">
+                <div class="form-row">
+                    <div class="col-md-11">
+                         <input type="text" class="form-control" placeholder="Buscar Mantenimientos" name="Buscar" autofocus>
+                    </div>
+                    <div class="col-md-1">
+                         <button class="btn">
+                             <i class="fa-solid fa-magnifying-glass"></i>
+                         </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+       
+    </div>
+</div>
+
+<div class="container p-4">
+    <div class="row table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Problematica</th>
+                <th scope="col">Status</th>
+                <th scope="col">Computadora</th>
+                <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {{#each Mantenimientos}}
+                <tr>
+                <th scope="row">{{IdMantenimiento}}</th>
+                <td>{{ChangeFecha Fecha }}</td>
+                <td>{{Tipo}}</td>
+                <td>{{Problematica}}</td>
+                <td>{{Status}}</td>
+                
+                <td>{{FkIdComputadora}}</td>
+                <td>
+
+                    <a href="/mantenimientos/pdf/{{IdMantenimiento}}" class="btn btn-secondary">PDF</a>
+                    {{#xif Status "Abierto"}}
+                    <a href="/Mantenimientos/edit/{{../IdMantenimiento}}" class="btn btn-info">Editar</a>
+                    {{/xif}}
+
+                </td>
+                </tr>
+                <tr>
+            
+            {{/each}}    
+            </tbody>
+            </table>
+    </div>
+</div>

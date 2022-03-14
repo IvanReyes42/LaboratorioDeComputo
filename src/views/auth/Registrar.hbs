@@ -1,0 +1,37 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3>Registrer</h3>
+                </div>
+                <div class="card-body">
+                        <form action="/Registrar" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="fullname" placeholder="Full Name" class="form-control" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="username" placeholder="User Name" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" placeholder="Password" class="form-control" autofocus>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputState">Rol</label>
+                                <select id="inputState" class="form-control" name="rol">
+                                    <option value="1" selected>Administrador</option>
+                                    <option value="2" >Tecnico</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-success btn-block">
+                                    Registrer
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
