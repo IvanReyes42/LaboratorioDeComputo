@@ -1,5 +1,6 @@
 //Importar Clase para conexion con BD
 const pool = require('../database');
+const helpers = require('../lib/helpers')
 
 class IndexController {
     
@@ -34,6 +35,15 @@ class IndexController {
                 FkIdLab
             };
             //console.log(newComputadora)
+
+            const validar = await helpers.validateExistingComputer(IdComputadora);
+            console.log(validar);
+            if(validar){
+                req.flash("message", `La computadora ${IdComputadora} ya esta registrado, intenta con otro`);
+                res.redirect('/laboratorios/'+FkIdLab);
+                return
+            }
+
             await pool.query('Insert into Computadoras set ?',[newComputadora]);
             req.flash('success','Computadora agregado correctamente');
             res.redirect('/laboratorios/'+FkIdLab);

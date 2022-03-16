@@ -5,17 +5,17 @@ const IndexController = require("../controllers/laboratorios.controller");
 const controller = new IndexController();
 //Clase para autenticar session activada
 
-const {isLoggedIn} = require('../lib/auth');
+const {isLoggedIn,isAdminIn} = require('../lib/auth');
 
 
-router.get('/',isLoggedIn,controller.List);
-router.get('/add',isLoggedIn,controller.FrmAdd);
-router.post('/add',isLoggedIn,controller.Add);
-router.get('/edit/:IdLab',isLoggedIn,controller.FrmEdit);
-router.post('/edit/:IdLab',isLoggedIn,controller.Edit);
-router.get('/delete/:IdLab',isLoggedIn,controller.Delete);
-router.post('/',isLoggedIn,controller.Search);
-router.get('/:IdLab',isLoggedIn,controller.Computadoras);
+router.get('/',isLoggedIn,isAdminIn,controller.List);
+router.get('/add',isLoggedIn,isAdminIn,controller.FrmAdd);
+router.post('/add',isLoggedIn,isAdminIn,controller.Add);
+router.get('/edit/:IdLab',isLoggedIn,isAdminIn,controller.FrmEdit);
+router.post('/edit/:IdLab',isLoggedIn,isAdminIn,controller.Edit);
+router.get('/delete/:IdLab',isLoggedIn,isAdminIn,controller.Delete);
+router.post('/',isLoggedIn,isAdminIn,controller.Search);
+router.get('/:IdLab',isLoggedIn,isAdminIn,controller.Computadoras);
 
 
 module.exports = router;

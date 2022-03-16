@@ -224,7 +224,7 @@ class IndexController {
             
             const Mantenimientos = await pool.query('select m.*,u.FullName from mantenimientos m, users u where FkIdUser = Iduser and IdMantenimiento = ?',[IdMan]);
             const Mantenimiento = Mantenimientos[0];
-            console.log(Mantenimiento);
+           // console.log(Mantenimiento);
             var options = { year: 'numeric', month: 'long', day: 'numeric' };
 
            

@@ -25,4 +25,13 @@ helpers.validateExistingUserName = async (UserName)=>{
         return false    
 }
 
+helpers.validateExistingComputer = async (IdComputadora)=>{
+    const computer = await pool.query('select * from computadoras where IdComputadora = ?',[IdComputadora])
+    //console.log(user.length)
+    if(computer.length > 0)
+        return true
+    else
+        return false    
+}
+
 module.exports = helpers;

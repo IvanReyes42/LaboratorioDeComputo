@@ -60,6 +60,7 @@ app.use('/laboratorios',require('./routers/laboratorios.js'))
 app.use('/laboratorios/computadoras',require('./routers/computadoras.js'))
 app.use('/users',require('./routers/users.js'))
 app.use('/mantenimientos',require('./routers/mantenimientos.js'))
+app.use(require("./routers/status"));
 
 //Publicos
 app.use(express.static(path.join(__dirname, 'public')))
